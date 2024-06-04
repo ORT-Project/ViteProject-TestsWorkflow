@@ -25,7 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - uses: actions/checkout@v3
       - uses: ArtiomTr/jest-coverage-report-action@v2
         id: coverage
         with:
