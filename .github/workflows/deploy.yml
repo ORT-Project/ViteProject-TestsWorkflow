@@ -12,31 +12,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - uses: ArtiomTr/jest-coverage-report-action@v2
-        id: coverage
-        with:
-          # tell to the action to not attach comment.
-          output: report-markdown
-      - uses: marocchino/sticky-pull-request-comment@v2
-        with:
-        # pass output from the previous step by id.
-          message: ${{ steps.coverage.outputs.report }}
-
-      - name: Run tests
-        run: npm run test
-
-      - name: Create File Test
-        run: npx jest --ci --json --coverage --testLocationInResults --outputFile=report.json
+        - uses: actions/checkout@v3
+        - uses: ArtiomTr/jest-coverage-report-action@v2
