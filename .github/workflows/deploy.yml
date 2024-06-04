@@ -30,3 +30,6 @@ jobs:
 
       - name: Run tests
         run: npm run test
+
+      - name: Create File Test
+        run: npx jest --ci --json --coverage --testLocationInResults --outputFile=report.json
